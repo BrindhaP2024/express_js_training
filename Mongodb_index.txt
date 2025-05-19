@@ -1,0 +1,40 @@
+use companyDB
+
+db.employees.getIndexes()
+
+db.employees.insertMany([
+    { name: "Amit", age: 30, city: "Mumbai", email: "amit@example.com", position: "Manager" },
+    { name: "Priya", age: 25, city: "Delhi", email: "priya@example.com", position: "Software Engineer" },
+    { name: "Rahul", age: 35, city: "Bangalore", email: "rahul@example.com", position: "Data Scientist" },
+    { name: "Sneha", age: 28, city: "Chennai", email: "sneha@example.com", position: "HR Executive" },
+    { name: "Vikram", age: 40, city: "Hyderabad", email: "vikram@example.com", position: "Product Manager" },
+    { name: "Anjali", age: 32, city: "Kolkata", email: "anjali@example.com", position: "Marketing Head" }
+])
+db.employees.insertMany([
+    { name: "Amit", age: 30, city: "Mumbai", email: "amit@example.com", position: "Manager" },
+    { name: "Priya", age: 25, city: "Delhi", email: "priya@example.com", position: "Software Engineer" },
+    { name: "Rahul", age: 35, city: "Bangalore", email: "rahul@example.com", position: "Data Scientist" },
+    { name: "Sneha", age: 28, city: "Chennai", email: "sneha@example.com", position: "HR Executive" },
+    { name: "Vikram", age: 40, city: "Hyderabad", email: "vikram@example.com", position: "Product Manager" },
+    { name: "Anjali", age: 32, city: "Kolkata", email: "anjali@example.com", position: "Marketing Head" }
+])
+db.employees.insertMany([
+    { name: "Amit", age: 30, city: "Mumbai", email: "amit@example.com", position: "Manager" },
+    { name: "Priya", age: 25, city: "Delhi", email: "priya@example.com", position: "Software Engineer" },
+    { name: "Rahul", age: 35, city: "Bangalore", email: "rahul@example.com", position: "Data Scientist" },
+    { name: "Sneha", age: 28, city: "Chennai", email: "sneha@example.com", position: "HR Executive" },
+    { name: "Vikram", age: 40, city: "Hyderabad", email: "vikram@example.com", position: "Product Manager" },
+    { name: "Anjali", age: 32, city: "Kolkata", email: "anjali@example.com", position: "Marketing Head" }
+])
+
+db.employees.createIndex({ name: 1 })         
+db.employees.createIndex({ email: 1 }, { unique: true })  
+db.employees.createIndex({ age: 1, city: 1 }) 
+db.employees.createIndex({ position: "text" }) 
+db.employees.find({ email: "amit@example.com" }).pretty()
+
+db.employees.find({ age: { $gt: 30 }, city: "Mumbai" }).pretty()
+
+db.employees.find({ $text: { $search: "Engineer" } }).pretty()
+
+db.employees.find({ name: "Amit" }).explain("executionStats")
