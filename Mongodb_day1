@@ -1,0 +1,73 @@
+show collections
+new db
+use practicedb
+use employee
+db.createCollections("staffs");
+db.createCollections("staffs")
+db.createCollections("staffs")
+db.createCollections(staff);
+cls
+use employee
+db.staffs.insertOne({name:'Anu',position:'Trainee');
+db.staffs.insertOne({name:"Anu",position:"Trainee");
+db.staffs.insertOne({name:"Anu",position:"Trainee"});
+db.staffs.insertOne({name:"Anu",position:"Trainee"},{name:"Williams",position:"Developer");
+db.staffs.insertOne({name:"Vishnu",position:"Trainee"},{name:"Williams",position:"Developer"});
+db.staffs.find({});
+db.staffs.insertMany{name:"Vishnu",position:"Trainee"},{name:"Asif",position:"Developer"});
+db.staffs.insertMany({name:"Vishnu",position:"Trainee"},{name:"Asif",position:"Developer"});
+db.staffs.insertMany([
+  { name: "Vishnu", position: "Trainee" },
+  { name: "Asif", position: "Developer" }
+]);
+
+db.staffs.insertMany([
+db.staffs.insertMany{name:"Vishnu",position:"Trainee"},{name:"Asif",position:"Developer"});
+db.staffs.find({});
+db.staffs.updateOne(
+  { name: "Vishnu" },  // Query condition
+  { $set: { position: "Junior Trainee" } }  // Update action
+);
+
+db.staffs.updateMany({position:"Developer"},
+{$set:{position:"Senior Developer"}} );
+db.staffs.find({});
+db.staffs.updateMany({ position: "Developer" }, { $set: { position: "Senior Developer" } });
+db.staffs.find({});
+db.staffs.find({});
+db.staff.countDocuments();
+
+db.staff.find({});
+db.staffs.countDocuments();
+db.staffs.countDocuments();
+db.collections.isCapped();
+db.staffs.cappedCollections()
+db.staffs.isCapped()
+db.collections.bulkwrite([{
+replaceOne:{
+"filter":staff
+}])
+db.staffs.bulkWrite([{
+replaceOne:{
+filter : {name:"Vishnu",position:"Trainee"},
+replacement:{name:"Vishnu",position:"Mid-senior dev"},
+upsert:false
+}
+}
+]);
+db.staffs.bulkWrite([
+  {
+    replaceOne: {
+      filter: { name: "Anu" },
+      replacement: { name: "Anu", position: "Software Engineer" },
+      upsert: false
+    }
+  },
+  {
+    replaceOne: {
+      filter: { name: "Asif" },
+      replacement: { name: "Asif", position: "Lead Developer" },
+      upsert: false
+    }
+  }
+]);
